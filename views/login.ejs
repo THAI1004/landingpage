@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3c83f6",
+                        "background-dark": "#020617",
+                        "border-slate": "#1e293b"
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(60, 131, 246, 0.4);
+            border: 1px solid rgba(60, 131, 246, 0.6);
+        }
+    </style>
+    <title>Login - Bee IT Admin</title>
+</head>
+<body class="bg-background-dark font-display text-slate-100 min-h-screen flex flex-col items-center justify-center p-6 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 to-background-dark">
+    
+    <div class="w-full max-w-md bg-slate-900/50 backdrop-blur-xl border border-border-slate rounded-2xl p-8 shadow-2xl">
+        <div class="text-center mb-8">
+            <span class="material-symbols-outlined text-primary text-4xl mb-2 block mx-auto">terminal</span>
+            <h1 class="text-2xl font-bold tracking-tight">Bee IT Portal</h1>
+            <p class="text-slate-400 text-sm mt-2">Đăng nhập vào hệ thống quản lý AI</p>
+        </div>
+
+        <% if (error) { %>
+            <div class="bg-red-500/10 border border-red-500/50 text-red-500 text-sm p-3 rounded-lg mb-6 text-center">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <form action="/login" method="POST" class="space-y-6">
+            <div>
+                <label for="username" class="block text-sm font-medium text-slate-300 mb-2">Tên đăng nhập</label>
+                <input type="text" id="username" name="username" required 
+                       class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-border-slate focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-600"
+                       placeholder="admin">
+            </div>
+            
+            <div>
+                <label for="password" class="block text-sm font-medium text-slate-300 mb-2">Mật khẩu</label>
+                <input type="password" id="password" name="password" required 
+                       class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-border-slate focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-600"
+                       placeholder="••••••••">
+            </div>
+
+            <button type="submit" class="w-full neon-glow py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all mt-4">
+                Đăng nhập hệ thống
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>

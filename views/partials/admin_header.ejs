@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Quyền Quản Trị | AI Showcase</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-dark": "#020617",
+                        "sidebar": "#0f172a"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["Roboto Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background-dark font-display text-slate-100 flex h-screen overflow-hidden selection:bg-primary/30">
+
+<!-- Sidebar -->
+<aside class="w-64 bg-sidebar border-r border-slate-800 flex flex-col hidden md:flex">
+    <div class="h-16 flex items-center px-6 border-b border-slate-800 shrink-0">
+        <svg class="w-6 h-6 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
+        <span class="font-mono font-bold tracking-wider">BEE IT ADMIN</span>
+    </div>
+    
+    <div class="p-4 flex-1 overflow-y-auto">
+        <p class="text-xs font-mono text-slate-500 uppercase tracking-wider mb-4 px-2">Quản lý nội dung</p>
+        <nav class="space-y-1">
+            <a href="/admin" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors group">
+                <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" /></svg>
+                Tất cả Dự án
+            </a>
+            <a href="/admin/add" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors group">
+                <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                Thêm Mới
+            </a>
+        </nav>
+        
+        <p class="text-xs font-mono text-slate-500 uppercase tracking-wider mb-4 px-2 mt-8">Hệ thống</p>
+        <nav class="space-y-1">
+            <a href="/" target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors group">
+                <svg class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+                Xem Trang chủ
+            </a>
+        </nav>
+    </div>
+</aside>
+
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+    <!-- Topbar -->
+    <header class="h-16 bg-background-dark/80 backdrop-blur border-b border-slate-800 flex items-center justify-between px-6 shrink-0 z-10">
+        <div class="flex gap-4">
+            <button class="md:hidden text-slate-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+            </button>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 opacity-80 pl-4 border-l border-slate-800">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-purple-500 flex items-center justify-center text-sm font-bold">
+                    <%= typeof user !== 'undefined' ? user.substring(0,1).toUpperCase() : 'A' %>
+                </div>
+                <span class="text-sm font-medium hidden sm:block"><%= typeof user !== 'undefined' ? user : 'Admin' %></span>
+            </div>
+            <a href="/logout" class="ml-4 text-xs font-mono text-red-400 hover:text-red-300 border border-red-500/30 hover:bg-red-500/10 px-3 py-1.5 rounded transition-all">ĐĂNG XUẤT</a>
+        </div>
+    </header>
+
+    <!-- Flash Messages -->
+    <% if (typeof messages !== 'undefined') { %>
+        <% if (messages.success && messages.success.length > 0) { %>
+            <div id="flash-alert" class="absolute top-20 right-6 z-50 bg-green-500/20 border border-green-500/50 text-green-400 px-4 py-3 rounded shadow-lg flex items-center gap-3 transform transition-all duration-300">
+                <svg class="w-6 h-6 text-green-400 inline" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                <span><%= messages.success[0] %></span>
+            </div>
+            <script>
+                setTimeout(() => {
+                    const alert = document.getElementById('flash-alert');
+                    if (alert) {
+                        alert.style.opacity = '0';
+                        alert.style.transform = 'translateY(-10px)';
+                        setTimeout(() => alert.remove(), 300);
+                    }
+                }, 3000);
+            </script>
+        <% } %>
+        
+        <% if (messages.error && messages.error.length > 0) { %>
+            <div id="flash-alert" class="absolute top-20 right-6 z-50 bg-red-500/20 border border-red-500/50 text-red-400 px-4 py-3 rounded shadow-lg flex items-center gap-3 transform transition-all duration-300">
+                <svg class="w-6 h-6 text-red-500 inline" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3Z" /></svg>
+                <span><%= messages.error[0] %></span>
+            </div>
+            <script>
+                setTimeout(() => {
+                    const alert = document.getElementById('flash-alert');
+                    if (alert) {
+                        alert.style.opacity = '0';
+                        alert.style.transform = 'translateY(-10px)';
+                        setTimeout(() => alert.remove(), 300);
+                    }
+                }, 4000);
+            </script>
+        <% } %>
+    <% } %>
