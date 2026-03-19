@@ -80,6 +80,7 @@ app.get('/', async (req, res) => {
         const offset = (page - 1) * limit;
 
         let dataQuery = 'SELECT * FROM products';
+        // console.error(dataQuery);
         let countQuery = 'SELECT COUNT(*) as total FROM products';
         const queryParams = [];
 

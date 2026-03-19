@@ -7,6 +7,7 @@ async function initDB() {
         // Connect without database selected first to create it
         const connection = await mysql.createConnection({
             host: process.env.DB_HOST || 'localhost',
+              port: process.env.DB_PORT || 3307,
             user: process.env.DB_USER || 'root',
             password: process.env.DB_PASSWORD || ''
         });
