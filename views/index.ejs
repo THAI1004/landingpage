@@ -13,11 +13,11 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#2563eb",
-                        "accent": "#22c55e",
+                        "primary": "#0d6efd",
+                        "accent": "#ff7a00",
                         "surface": "#ffffff",
-                        "surface-2": "#f8fafc",
-                        "border-soft": "#e2e8f0"
+                        "surface-2": "#f5f7fb",
+                        "border-soft": "#e6eaf2"
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"],
@@ -36,12 +36,19 @@
     </script>
 <style>
         .grid-bg {
-            background-image: radial-gradient(ellipse at top, rgba(37, 99, 235, 0.08), transparent 55%),
-                              radial-gradient(ellipse at bottom, rgba(34, 197, 94, 0.08), transparent 55%);
+            background-image: radial-gradient(ellipse at top, rgba(13, 110, 253, 0.10), transparent 55%),
+                              radial-gradient(ellipse at bottom, rgba(255, 122, 0, 0.08), transparent 55%);
+        }
+        .hero-shell {
+            padding-top: clamp(3.5rem, 6vh, 5.25rem);
+            padding-bottom: clamp(1.75rem, 4vh, 3rem);
+        }
+        .projects-shell {
+            padding-top: clamp(1.25rem, 3vh, 2.25rem);
         }
         .neon-glow {
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.18);
-            border: 1px solid rgba(37, 99, 235, 0.22);
+            box-shadow: 0 12px 24px rgba(13, 110, 253, 0.18);
+            border: 1px solid rgba(13, 110, 253, 0.22);
         }
         .bento-card {
             background: #ffffff;
@@ -55,7 +62,7 @@
         }
     </style>
 </head>
-<body class="bg-surface-2 font-code text-slate-900 selection:bg-primary/20">
+<body class="bg-surface-2 font-display text-slate-900 selection:bg-primary/15">
 <!-- Grid Lines Overlay -->
 <div class="fixed inset-0 grid-bg pointer-events-none z-0"></div>
 <div class="relative z-10">
@@ -82,16 +89,31 @@
 </div>
 </nav>
 <!-- Hero Section -->
-<section class="max-w-7xl mx-auto px-6 py-24 md:py-32 flex flex-col items-center text-center">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/15 text-primary text-xs font-bold mb-8 uppercase tracking-widest"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-35"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span></span> Nền tảng AI cho showcase sản phẩm</div>
-<h1 class="font-mono text-4xl md:text-7xl font-bold mb-6 tracking-tight max-w-4xl"> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-500">Kiến tạo Tương lai bằng Mã nguồn</span></h1>
+<section class="hero-shell max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/15 text-primary text-xs font-bold mb-8 uppercase tracking-widest"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-35"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span></span> Nền tảng quản lý & giới thiệu dự án</div>
+<h1 class="font-mono text-4xl md:text-7xl font-bold mb-6 tracking-tight max-w-4xl"> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Kiến tạo Tương lai bằng Mã nguồn</span></h1>
 <p class="text-slate-600 text-lg md:text-xl max-w-2xl mb-12 font-display">Điều phối mạng thần kinh tiên tiến cho kỹ thuật hiệu suất cao. Chúng tôi thu hẹp khoảng cách giữa các thuật toán trừu tượng và trí tuệ nhân tạo cấp sản xuất.</p>
 <div class="flex flex-col sm:flex-row gap-4">
     <button onclick="document.getElementById('projects-grid').scrollIntoView({ behavior: 'smooth' })" class="neon-glow px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/95 transition-all flex items-center gap-2 cursor-pointer">Khám phá Dự án <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></button>
 </div>
+
+<form action="/" method="GET" class="w-full max-w-4xl mt-10">
+    <div class="bg-white border border-border-soft rounded-2xl shadow-sm p-3 md:p-4 flex flex-col md:flex-row gap-3 md:gap-4 items-stretch md:items-center">
+        <div class="flex-1">
+            <label class="block text-left text-xs font-semibold text-slate-600 mb-1">Từ khóa</label>
+            <input type="text" name="q" value="<%= locals.searchQuery || '' %>" placeholder="Nhập tên dự án / công nghệ..." class="w-full bg-surface-2 border border-border-soft rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/15 placeholder-slate-400">
+        </div>
+        <button type="submit" class="neon-glow md:mt-6 bg-primary text-white font-bold rounded-xl px-6 py-3 hover:bg-primary/95 transition-colors whitespace-nowrap">
+            Tìm kiếm
+        </button>
+    </div>
+</form>
 </section>
 <!-- Bento Grid Project Showcase -->
-<section id="projects-grid" class="max-w-7xl mx-auto px-6 pb-24 pt-12 mt-12 scroll-mt-20">
+<section id="projects-grid" class="projects-shell max-w-7xl mx-auto px-6 pb-24 scroll-mt-20">
+<div class="mb-10">
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-border-soft to-transparent"></div>
+</div>
 <div class="flex justify-between items-end mb-12">
 <div>
 <h2 class="text-3xl font-mono font-bold">Sản phẩm Tiêu biểu</h2>
@@ -106,7 +128,7 @@
     <% if (typeof products !== 'undefined' && products.length > 0) { %>
         <% products.forEach(product => { %>
         <!-- Dynamic Card -->
-        <div class="bento-card group overflow-hidden relative h-[400px] cursor-pointer" onclick="openVideoModal('<%= product.video_url %>', '<%= product.title %>')">
+        <div class="bento-card group overflow-hidden relative h-[clamp(280px,38vh,400px)] cursor-pointer" onclick="openVideoModal('<%= product.video_url %>', '<%= product.title %>')">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent z-10 pointer-events-none transition-opacity group-hover:opacity-100"></div>
             <div class="w-full h-full bg-slate-100 flex items-center justify-center relative">
                 <% if (product.video_url) { %>
@@ -125,7 +147,7 @@
                 <div class="flex gap-2 mb-3">
                     <% if (product.tech_tags) { %>
                         <% product.tech_tags.split(',').forEach(tag => { %>
-                            <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-[10px] rounded-md border border-emerald-200 uppercase font-bold"><%= tag.trim() %></span>
+                            <span class="px-2 py-0.5 bg-orange-50 text-orange-700 text-[10px] rounded-md border border-orange-200 uppercase font-bold"><%= tag.trim() %></span>
                         <% }) %>
                     <% } %>
                 </div>
@@ -188,6 +210,8 @@
 <span class="text-2xl font-bold tracking-tighter">NODE.JS</span>
 <span class="text-2xl font-bold tracking-tighter">TENSORFLOW</span>
 <span class="text-2xl font-bold tracking-tighter">REACT</span>
+
+
 <span class="text-2xl font-bold tracking-tighter">CUDA</span>
 <span class="text-2xl font-bold tracking-tighter">PYTHON</span>
 <!-- Duplicate for infinite effect -->
